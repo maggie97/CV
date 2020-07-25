@@ -1,0 +1,106 @@
+%%%%%%%%%%%%%%%
+% This CV example/template is based on my own
+% CV which I (lamely attempted) to clean up, so that
+% it's less of an eyesore and easier for others to use.
+%
+% LianTze Lim (liantze@gmail.com)
+% 16 September, 2016
+%
+\documentclass[letterpaper, skipsamekey,12pt,british]{curve}
+
+% Uncomment to enable Chinese; needs XeLaTeX
+% \usepackage{ctex}
+
+\usepackage{settings}
+
+% Change the fonts if you want
+\ifxetexorluatex % If you're using XeLaTeX or LuaLaTeX
+  \usepackage{fontspec}
+  \usepackage{fontawesome5}
+  %% Warning: EB Garamond contains no bold!! Substituting for Junicode Bold, but *may not look nice nor consistent*!!
+%   \setmainfont[Ligatures=TeX,SmallCapsFeatures={Letters=SmallCaps,LetterSpace=5},BoldFont=Junicode Bold]{EB Garamond}
+  %% Charis SIL's rather nice, actually.
+  \setmainfont[Ligatures=TeX,SmallCapsFeatures={Letters=SmallCaps,LetterSpace=7}]{Charis SIL}
+  \setsansfont[Ligatures=TeX]{Fira Sans}
+  \setmonofont{Inconsolata}
+\else % If you're using pdfLaTeX or latex
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[tracking=smallcaps]{microtype}
+  \usepackage{fbb}
+  \usepackage[type1]{cabin}
+  \usepackage[varqu,varl]{zi4}
+  \usepackage{hyperref}
+  
+  \useosf  %% Comment out if you prefer lining figures rather than old style figures
+\fi
+\usepackage{csquotes}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+}
+%% Only needed if you want a Publication List
+\addbibresource{own-bib.bib}
+
+%% Specify your last name and first name (as given in the .bib) to automatically bold your own name in the publications list. One caveat: You need to write \bibnamedelima where there's a space in your name for this to work properly for now...
+\myname{Margarita Neftalí}{Méndez\bibnamedelima Rodríguez}
+
+% Change the page margins if you want
+ \geometry{left=1cm,right=1cm,top=1.5cm,bottom=1.5cm}
+
+% Change the colours if you want
+% \definecolor{SwishLineColour}{HTML}{00FFFF}
+% \definecolor{MarkerColour}{HTML}{0000CC}
+
+% Change the item prefix marker if you want
+%\prefixmarker{$\diamond$}
+
+%% Photo is only shown if "fullonly" is included
+\includecomment{fullonly}
+\excludecomment{fullonly}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{fullonly}
+\photo[r]{foto2}
+\photoscale{0.2}
+\end{fullonly}
+
+\leftheader{%
+  {\LARGE\bfseries\sffamily Margarita Neftali \MakeUppercase{Mendez Rodriguez}}
+
+  \makefield{\faEnvelopeO}{\texttt{margarita.mendez97@hotmail.com}}
+%  \makefield{\faTwitter}{\texttt{@liantze}}
+
+%  \makefield{\faGlobe}{\url{http://liantze.penguinattack.org/}}
+
+  \makefield{\faLinkedinSquare}
+  {\url{https://www.linkedin.com/in/margarita-méndez-5bb7b4139}}
+  
+  \makefield{\faGithub }{https://github.com/maggie97}
+}
+
+\rightheader{~}
+
+
+\title{Curriculum Vitae}
+
+\begin{document}
+\makeheaders[c]
+
+\makerubric{employment}
+\makerubric{education}
+
+% If you're not a researcher nor an academic, you probably don't have any publications; delete this line.
+%% Sometimes when a section can't be nicely modelled with the \entry[]... mechanism; hack our own and use \input NOT \makerubric
+\input{publications}
+
+\makerubric{skills}
+\makerubric{misc}
+
+%\makerubric{referee}
+% \input{referee-full}
+
+\end{document}
